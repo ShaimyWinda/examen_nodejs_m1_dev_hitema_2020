@@ -6,8 +6,17 @@ module.exports = class PeopleService {
     }
 
     updatePeople(id, people) {
-        // To be implemented!
+        this.peoples.filter(function (a) {
+            if (a.id === parseInt(id))
+            {
+                for (var keys in people) {
+                    a[keys] = people[keys];
+                    console.log(a);
+                }
+            }   
+        })
     }
+    
     
     getPeople(filters) {
         // To be implemented!
