@@ -14,13 +14,19 @@ app.use('/api/v1', v1);
 v1.post('/people/:id', async (req, res) => {
     const id = req.params.id;
     const people = req.body;
-    try {
-        await peopleService.updatePeople(id, people);
+    const result = await peopleService.updatePeople(id, people);
+    console.log(result);
+    if (result === true)
         res.sendStatus(HttpStatus.OK);
-    } catch (e) {
+    else
         res.sendStatus(HttpStatus.NOT_FOUND);
-    }
+
     
+});
+
+v1.get('/people', async (req, res) => {
+    const result = await peopleService.getPeople();
+    res.send(result);    
 });
 
 // To be implemented!

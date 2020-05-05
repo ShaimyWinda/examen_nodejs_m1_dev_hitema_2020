@@ -6,19 +6,22 @@ module.exports = class PeopleService {
     }
 
     updatePeople(id, people) {
+        let update = false;
         this.peoples.filter(function (a) {
             if (a.id === parseInt(id))
             {
                 for (var keys in people) {
                     a[keys] = people[keys];
                     console.log(a);
+                    update = true;
                 }
             }   
         })
+        return update;
     }
     
     
     getPeople(filters) {
-        // To be implemented!
+        return this.peoples;
     }
 }
