@@ -4,7 +4,9 @@ const webSocketServer = new WebSocket.Server({ port: 3003 });
 const history = [];
 
 webSocketServer.on('connection', webSocket => {
-    webSocket.send(history);
+    const result = JSON.stringify(history);
+    webSocket.send(result);
+    //console.log(history);
     webSocket.onmessage = messageEvent => {
         const message = messageEvent.data;
         history.push(message);
