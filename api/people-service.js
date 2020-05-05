@@ -21,7 +21,7 @@ module.exports = class PeopleService {
     }
     
     
-    getPeople(filters) {
+    getPeople() {
         return this.peoples;
     }
 }
